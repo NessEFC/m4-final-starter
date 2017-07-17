@@ -1,0 +1,11 @@
+<div id="registration_form">
+  <h1>Signup!</h1>
+  <%= bootstrap_form_for(@user) do |f| %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
+
+<p>Already a user? <%= link_to "Log in by clicking here", login_path %></p>

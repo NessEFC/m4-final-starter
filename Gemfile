@@ -38,7 +38,6 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'spring'
   gem 'database_cleaner'
-  gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
