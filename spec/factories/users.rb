@@ -4,7 +4,7 @@ FactoryGirl.define do
       "person#{n}@example.com"
     end
 
-    password_digest 'password'
+    password 'password'
     password_confirmation 'password'
   end
 end
