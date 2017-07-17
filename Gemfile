@@ -14,7 +14,12 @@ gem 'rails_12factor', group: :production
 gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'autoprefixer-rails'
+gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'puma', '~> 3.0'
+gem 'therubyracer', platforms: :ruby
 
 # gem 'unicorn'
 
@@ -27,6 +32,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'faker'
   gem 'launchy'
   gem 'pry'
   gem 'simplecov', :require => false
@@ -35,5 +41,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'selenium-webdriver', '~> 2.53.4'
 end
