@@ -22,8 +22,11 @@ class Link {
       success: function(data) {
         const link = new Link(data.link)
         link.appendToPage()
-        $('input[name="title"]').val("")
-        $('input[name="url"]').val("")
+        $('input[name="link[title]"]').val("")
+        $('input[name="link[url]"]').val("")
+      },
+      error: function(data) {
+        $('.errors').append(`<p>${data.responseJSON.message}</p>`)
       }
     })
   }

@@ -14,6 +14,8 @@ RSpec.feature('Create a link', js: true) do
     fill_in('link[title]', with: 'GitHub')
     click_link_or_button('Add Link')
 
+    sleep(2)
+
     link = Link.last
 
     expect(link.url).to eq('https://github.com/')

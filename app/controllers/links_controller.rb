@@ -1,7 +1,9 @@
 class LinksController < ApplicationController
 
   def index
-    unless current_user
+    if current_user
+      @links = current_user.links
+    else
       redirect_to login_path
     end
   end
