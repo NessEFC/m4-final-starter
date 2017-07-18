@@ -1,4 +1,7 @@
 <div id="link-form">
+  <div class="errors">
+  </div>
+
   <form class="post-form form-group" id="new-link-form">
     <p>URL:</p><input name="link[url]" placeholder="Enter a URL" class="form-control" id="link-url-input"></input><br/>
     <p>Title:</p><input name="link[title]" placeholder="Enter a title" class="form-control" id="link-title-input"></input><br/>
@@ -6,6 +9,17 @@
   </form>
 
   <div class="link-list">
+    <% @links.each do |link| %>
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">Title: <%= link.title %></h4>
+          <p class="card-text">URL: <a href="#{<%= link.url %>}"><%= link.url %></a></p>
+          <p class="card-text">Read?: <%= link.read %></p>
+          <input type="button" value="Mark as Read" class="btn btn-secondary">
+          <a href="/links/#{<%= link.id %>}/edit" class="btn btn-warning">Edit</a>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 </div>

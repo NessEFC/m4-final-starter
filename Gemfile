@@ -20,8 +20,8 @@ gem 'bootstrap_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'puma', '~> 3.0'
 gem 'therubyracer', platforms: :ruby
+gem "validate_url"
 
-# gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development
 group :development do

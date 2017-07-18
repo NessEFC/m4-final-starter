@@ -3,11 +3,17 @@ class Api::V1::LinksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    link = current_user.links.create(link_params)
-    render status: 201, json: {
-      message: "Successfully created a link.",
-      link: link
-    }.to_json
+    link = current_user.links.new(link_params)
+    if link.save
+      render status: 201, json: {
+        message: "Successfully created a link.",
+        link: link
+      }.to_json
+    else
+      render status: 404, json: {
+        message: "Not a valid URL."
+      }.to_json
+    end
   end
 
   def update

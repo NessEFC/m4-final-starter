@@ -2,7 +2,25 @@ $(() => {
   $('#add-link-btn').on('click', function(event) {
     event.preventDefault()
     const link = getLinkValues()
-    link.createLink()
+    if(link.url && link.title) {
+      $('.errors').empty()
+      link.createLink()
+    } else if(!link.url && !link.title) {
+      $('.errors').empty()
+      $('.errors').append(`<p>Fields can't be blank.</p>`)
+      $('input[name="link[title]"]').val("")
+      $('input[name="link[url]"]').val("")
+    } else if(!link.title) {
+      $('.errors').empty()
+      $('.errors').append(`<p>Title can't be blank.</p>`)
+      $('input[name="link[title]"]').val("")
+      $('input[name="link[url]"]').val("")
+    } else {
+      $('.errors').empty()
+      $('.errors').append(`<p>URL can't be blank.</p>`)
+      $('input[name="link[title]"]').val("")
+      $('input[name="link[url]"]').val("")
+    }
   })
 })
 
