@@ -10,7 +10,11 @@
 
   <div class="link-list">
     <% @links.each do |link| %>
-      <div class="card" data-id="<%= link.id %>">
+      <% if link.read %>
+        <div class="card clicked" data-id="<%= link.id %>">
+      <% else %>
+        <div class="card" data-id="<%= link.id %>">
+      <% end %>
         <div class="card-block">
           <h4 class="card-title">Title: <%= link.title %></h4>
           <p class="card-text">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
