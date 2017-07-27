@@ -45,6 +45,20 @@ class Link {
   }
 
   static filterLink(e) {
-    
+    let filter = e.target.value.toLowerCase()
+    let list = $('.link-list')
+    let links = list.find('.card')
+
+    links = Array.from(links)
+
+    links.map(link => {
+      let title = link.getElementsByClassName('card-title')[0].innerText.split(' ')[1].toLowerCase()
+
+      if(title.indexOf(filter) > -1) {
+        link.style.display = ''
+      } else {
+        link.style.display = 'none'
+      }
+    })
   }
 }
