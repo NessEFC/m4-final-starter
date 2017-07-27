@@ -26,6 +26,10 @@ $(() => {
   $('#links-filter').on('keyup', (event) => {
     Link.filterLink(event)
   })
+
+  $('#filter-unread-btn').on('click', (event) => {
+    Link.filterUnreadLinks(event)
+  })
 })
 
 function getLinkValues() {

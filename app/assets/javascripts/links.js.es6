@@ -62,4 +62,17 @@ class Link {
       }
     })
   }
+
+  static filterUnreadLinks(e) {
+    let list = $('.link-list')
+    let links = list.find('.card')
+
+    links = Array.from(links)
+
+    links.map(link => {
+      let status = link.getElementsByClassName('read-status')[0].innerText.split(' ')[1]
+
+      status == 'false' ? link.style.display = '' : link.style.display = 'none'
+    })
+  }
 }
