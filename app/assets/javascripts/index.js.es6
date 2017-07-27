@@ -28,7 +28,11 @@ $(() => {
   })
 
   $('#filter-unread-btn').on('click', (event) => {
-    Link.filterUnreadLinks(event)
+    Link.filterUnread(event)
+  })
+
+  $('#filter-read-btn').on('click', (event) => {
+    Link.filterRead(event)
   })
 })
 
