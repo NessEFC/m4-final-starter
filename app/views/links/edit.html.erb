@@ -1,0 +1,7 @@
+<h1>Edit Link</h1>
+
+<%= bootstrap_form_for(@link) do |f| %>
+  <%= f.text_field :url %>
+  <%= f.text_field :title %>
+  <%= f.submit 'Update Link' %>
+<% end %>

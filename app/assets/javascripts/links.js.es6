@@ -6,7 +6,6 @@ class Link {
     this.read = false
   }
 
-
   createLink() {
     $.ajax({
       type: 'POST',
@@ -32,7 +31,7 @@ class Link {
   }
 
   appendToPage() {
-    $('.link-list').append(
+    $('.link-list').prepend(
      `<div class="card">
         <div class="card-block">
           <h4 class="card-title">Title: ${this.title}</h4>

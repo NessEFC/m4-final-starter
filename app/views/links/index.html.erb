@@ -16,7 +16,7 @@
           <p class="card-text">URL: <a href="#{<%= link.url %>}"><%= link.url %></a></p>
           <p class="card-text">Read?: <%= link.read %></p>
           <input type="button" value="Mark as Read" class="btn btn-secondary">
-          <a href="/links/#{<%= link.id %>}/edit" class="btn btn-warning">Edit</a>
+          <a href="/links/<%= link.id %>/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>
     <% end %>
