@@ -10,16 +10,23 @@
 
   <div class="link-list">
     <% @links.each do |link| %>
-      <div class="card">
+      <% if link.read %>
+        <div class="card clicked" data-id="<%= link.id %>">
+      <% else %>
+        <div class="card" data-id="<%= link.id %>">
+      <% end %>
         <div class="card-block">
           <h4 class="card-title">Title: <%= link.title %></h4>
-          <p class="card-text">URL: <a href="#{<%= link.url %>}"><%= link.url %></a></p>
-          <p class="card-text">Read?: <%= link.read %></p>
-          <input type="button" value="Mark as Read" class="btn btn-secondary">
+          <p class="card-text">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
+          <p class="card-text read-status">Read?: <%= link.read %></p>
+          <% if link.read %>
+            <input type="button" value="Mark as Unread" class="btn btn-info mark-as-read">
+          <% else %>
+            <input type="button" value="Mark as Read" class="btn btn-info mark-as-read">
+          <% end %>
           <a href="/links/<%= link.id %>/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>
     <% end %>
   </div>
-
 </div>

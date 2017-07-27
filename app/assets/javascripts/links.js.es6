@@ -32,12 +32,12 @@ class Link {
 
   appendToPage() {
     $('.link-list').prepend(
-     `<div class="card">
+     `<div class="card" data-id="${this.id}">
         <div class="card-block">
           <h4 class="card-title">Title: ${this.title}</h4>
           <p class="card-text">URL: <a href="${this.url}">${this.url}</a></p>
-          <p class="card-text">Read?: ${this.read}</p>
-          <input type="button" value="Mark as Read" class="btn btn-secondary">
+          <p class="card-text read-status">Read?: ${this.read}</p>
+          <input type="button" value="Mark as Read" class="btn btn-info mark-as-read">
           <a href="/links/${this.id}/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>`
