@@ -35,12 +35,57 @@ class Link {
      `<div class="card" data-id="${this.id}">
         <div class="card-block">
           <h4 class="card-title">Title: ${this.title}</h4>
-          <p class="card-text">URL: <a href="${this.url}">${this.url}</a></p>
+          <p class="card-text card-url">URL: <a href="${this.url}">${this.url}</a></p>
           <p class="card-text read-status">Read?: ${this.read}</p>
           <input type="button" value="Mark as Read" class="btn btn-info mark-as-read">
           <a href="/links/${this.id}/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>`
     )
+  }
+
+  static filterLink(e) {
+    let filter = e.target.value.toLowerCase()
+    let list = $('.link-list')
+    let links = list.find('.card')
+
+    links = Array.from(links)
+
+    links.map(link => {
+      let title = link.getElementsByClassName('card-title')[0].innerText.split(' ')[1].toLowerCase()
+      let url = link.getElementsByClassName('card-url')[0].innerText.split(' ')[1].toLowerCase()
+
+      if(title.indexOf(filter) > -1 || url.indexOf(filter) > -1) {
+        link.style.display = ''
+      } else {
+        link.style.display = 'none'
+      }
+    })
+  }
+
+  static filterUnread(e) {
+    let list = $('.link-list')
+    let links = list.find('.card')
+
+    links = Array.from(links)
+
+    links.map(link => {
+      let status = link.getElementsByClassName('read-status')[0].innerText.split(' ')[1]
+
+      status == 'false' ? link.style.display = '' : link.style.display = 'none'
+    })
+  }
+
+  static filterRead(e) {
+    let list = $('.link-list')
+    let links = list.find('.card')
+
+    links = Array.from(links)
+
+    links.map(link => {
+      let status = link.getElementsByClassName('read-status')[0].innerText.split(' ')[1]
+
+      status == 'true' ? link.style.display = '' : link.style.display = 'none'
+    })
   }
 }

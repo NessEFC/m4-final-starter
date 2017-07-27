@@ -8,6 +8,11 @@
     <input type="submit" class="btn btn-primary" id="add-link-btn" value="Add Link">
   </form>
 
+  <h4>Filters:</h4>
+  <input type="text" id="links-filter" placeholder="Search for a link...">
+  <input type="submit" class="btn btn-secondary" id="filter-unread-btn" value="Only Unread Links">
+  <input type="submit" class="btn btn-secondary" id="filter-read-btn" value="Only Read Links">
+
   <div class="link-list">
     <% @links.each do |link| %>
       <% if link.read %>
@@ -17,7 +22,7 @@
       <% end %>
         <div class="card-block">
           <h4 class="card-title">Title: <%= link.title %></h4>
-          <p class="card-text">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
+          <p class="card-text card-url">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
           <p class="card-text read-status">Read?: <%= link.read %></p>
           <% if link.read %>
             <input type="button" value="Mark as Unread" class="btn btn-info mark-as-read">

@@ -22,6 +22,18 @@ $(() => {
       $('input[name="link[url]"]').val("")
     }
   })
+
+  $('#links-filter').on('keyup', (event) => {
+    Link.filterLink(event)
+  })
+
+  $('#filter-unread-btn').on('click', (event) => {
+    Link.filterUnread(event)
+  })
+
+  $('#filter-read-btn').on('click', (event) => {
+    Link.filterRead(event)
+  })
 })
 
 function getLinkValues() {
