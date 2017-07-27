@@ -32,11 +32,27 @@ function updateLinkStatus(link) {
 
   if(link.read) {
     buttonText.prop('value', 'Mark as Unread')
+    createRead(link)
   } else {
     buttonText.prop('value', 'Mark as Read')
   }
 
   card.toggleClass('clicked')
+}
+
+function createRead(link) {
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3001/api/v1/reads',
+    dataType: 'json',
+    data: {
+      read: {
+        link_url: link.url
+      }
+    },
+  }).then((data) => {
+    console.log(data)
+  }).fail(displayFailure)
 }
 
 function displayFailure(failureData){
