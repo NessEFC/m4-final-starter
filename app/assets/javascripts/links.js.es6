@@ -43,4 +43,8 @@ class Link {
       </div>`
     )
   }
+
+  static filterLink(e) {
+    
+  }
 }
