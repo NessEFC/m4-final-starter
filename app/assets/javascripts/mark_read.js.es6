@@ -1,12 +1,12 @@
-$( document ).ready(function(){
-  $("body").on("click", ".mark-as-read", markAsRead)
+$(() => {
+  $('body').on('click', '.mark-as-read', markAsRead)
 })
 
 function markAsRead(e) {
-  e.preventDefault();
+  e.preventDefault()
 
-  var $link = $(this).parents('.link');
-  var linkId = $link.data('link-id');
+  var linkId = $(this).closest('.card').data('id')
+  var readStatus = $(this).closest('.card').find('.read-status').text().split(' ')[1]
 
   $.ajax({
     type: "PATCH",
