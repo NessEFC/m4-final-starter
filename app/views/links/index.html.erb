@@ -8,6 +8,9 @@
     <input type="submit" class="btn btn-primary" id="add-link-btn" value="Add Link">
   </form>
 
+  <h4>Filters:</h4>
+  <input type="text" id="links-filter" placeholder="Search for a link...">
+
   <div class="link-list">
     <% @links.each do |link| %>
       <% if link.read %>
