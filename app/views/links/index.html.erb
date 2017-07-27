@@ -20,7 +20,7 @@
       <% end %>
         <div class="card-block">
           <h4 class="card-title">Title: <%= link.title %></h4>
-          <p class="card-text">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
+          <p class="card-text card-url">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
           <p class="card-text read-status">Read?: <%= link.read %></p>
           <% if link.read %>
             <input type="button" value="Mark as Unread" class="btn btn-info mark-as-read">
