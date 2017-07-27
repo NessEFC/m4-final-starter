@@ -19,11 +19,14 @@
           <h4 class="card-title">Title: <%= link.title %></h4>
           <p class="card-text">URL: <a href="<%= link.url %>"><%= link.url %></a></p>
           <p class="card-text read-status">Read?: <%= link.read %></p>
-          <input type="button" value="Mark as Read" class="btn btn-info mark-as-read">
+          <% if link.read %>
+            <input type="button" value="Mark as Unread" class="btn btn-info mark-as-read">
+          <% else %>
+            <input type="button" value="Mark as Read" class="btn btn-info mark-as-read">
+          <% end %>
           <a href="/links/<%= link.id %>/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>
     <% end %>
   </div>
-
 </div>
