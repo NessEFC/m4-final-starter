@@ -6,7 +6,7 @@ $(() => {
 function updateHotReads() {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3001/api/v1/reads',
+    url: 'https://obscure-caverns-10564.herokuapp.com/api/v1/reads',
     dataType: 'json'
   }).then((reads) => {
     let urls = reads.map((read) => {
@@ -75,7 +75,7 @@ function updateLinkStatus(link) {
 function createRead(link) {
   $.ajax({
     type: 'POST',
-    url: 'http://localhost:3001/api/v1/reads',
+    url: 'https://obscure-caverns-10564.herokuapp.com/api/v1/reads',
     dataType: 'json',
     data: {
       read: {
