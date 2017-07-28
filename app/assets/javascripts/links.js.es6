@@ -9,7 +9,7 @@ class Link {
   createLink() {
     $.ajax({
       type: 'POST',
-      url: '/api/v1/links',
+      url: 'https://polar-plateau-61904.herokuapp.com/api/v1/links',
       dataType: 'json',
       data: {
         link:

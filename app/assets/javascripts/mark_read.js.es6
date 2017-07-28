@@ -44,7 +44,7 @@ function markAsRead(e) {
 
   $.ajax({
     type: 'PUT',
-    url: `/api/v1/links/${linkId}`,
+    url: `https://polar-plateau-61904.herokuapp.com/api/v1/links/${linkId}`,
     dataType: 'json',
     data: {
       link: {
