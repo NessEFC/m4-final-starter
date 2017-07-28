@@ -1,27 +1,28 @@
 # URLockBox
 
-## Final Assessment
+This app was created as part of the final assessment for the Turing School of Software and Design Back-end program, and is built using Rails. URLockBox serves as a way to create links with a title and URL, which users can then mark as read or search through using several filtering features. An external service for the app--known as Hot Reads--stores the top 10 read links which are then reflected on the URLockBox homepage by marking top links as "Hot" or "Top Link" (if the link is number one on the Hot Reads site).
 
-The URLockbox is a starter app for the final assessment for module 4 of the backend engineering program at Turing School of Software and Design.
+The URLockBox production app can be found here: [URLockBox Site](https://polar-plateau-61904.herokuapp.com/)
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+The Hot Reads repo can be found here: [Hot Reads Repo](https://github.com/NessEFC/hot_reads)
 
-### Testing your JS with Selenium
+The Hot Reads production app can be found here: [Hot Reads Site](https://obscure-caverns-10564.herokuapp.com/)
 
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
 
-#### Setup
+## Getting Started
 
-Everything will be installed with Bundle.
+To run this project locally:
+```
+git clone git@github.com:NessEFC/m4-final-starter.git
+cd m4-final-starter
+bundle
+rake db:create
+rake db:migrate
+rails s
+```
+Navigate to `localhost:3000` for the development environment.
 
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems.
 
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
+## Author
 
-#### Use
-
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
-
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
-
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+Craig Ness
