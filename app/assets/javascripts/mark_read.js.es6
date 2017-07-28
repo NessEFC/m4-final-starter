@@ -1,6 +1,38 @@
 $(() => {
   $('body').on('click', '.mark-as-read', markAsRead)
+  updateHotReads()
 })
+
+function updateHotReads() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:3001/api/v1/reads',
+    dataType: 'json'
+  }).then((reads) => {
+    let urls = reads.map((read) => {
+      return read.link_url
+    })
+
+    $('.card').each((i, card) => {
+      let url = $(card).find('a')[0].text.toLowerCase()
+
+      if(urls.includes(url)) {
+        $(card).find('.hot').remove()
+        $(card).find('.card-title').prepend('<p class="hot">Hot!</p>')
+      } else {
+        $(card).find('.hot').remove()
+      }
+
+      if(urls[0] === url) {
+        $(card).find('.hot').remove()
+        $(card).find('.top-link').remove()
+        $(card).find('.card-title').prepend('<p class="top-link">¡Top Link!</p>')
+      } else {
+        $(card).find('.top-link').remove()
+      }
+    })
+  }).fail(displayFailure)
+}
 
 function markAsRead(e) {
   e.preventDefault()
@@ -49,10 +81,9 @@ function createRead(link) {
       read: {
         link_url: link.url
       }
-    },
-  }).then((data) => {
-    console.log(data)
-  }).fail(displayFailure)
+    }
+  }).then(updateHotReads)
+    .fail(displayFailure)
 }
 
 function displayFailure(failureData){
