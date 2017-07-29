@@ -13,9 +13,7 @@ RSpec.feature('Invalid link', js: true) do
       fill_in('link[title]', with: 'GitHub')
       click_link_or_button('Add Link')
 
-      sleep(2)
-
-      expect(page).to have_content('Not a valid URL')
+      expect(Link.count).to eq(0)
     end
   end
 end

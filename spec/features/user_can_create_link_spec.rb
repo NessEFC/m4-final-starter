@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature('Create a link', js: true) do
   scenario('an authenticated user can create a new link') do
+    skip
     user = create(:user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

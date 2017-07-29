@@ -6,7 +6,7 @@ $(() => {
 function updateHotReads() {
   $.ajax({
     type: 'GET',
-    url: 'https://obscure-caverns-10564.herokuapp.com/api/v1/reads',
+    url: 'http://localhost:3001/api/v1/reads',
     dataType: 'json'
   }).then((reads) => {
     let urls = reads.map((read) => {
@@ -44,7 +44,7 @@ function markAsRead(e) {
 
   $.ajax({
     type: 'PUT',
-    url: `https://polar-plateau-61904.herokuapp.com/api/v1/links/${linkId}`,
+    url: `/api/v1/links/${linkId}`,
     dataType: 'json',
     data: {
       link: {
@@ -75,7 +75,7 @@ function updateLinkStatus(link) {
 function createRead(link) {
   $.ajax({
     type: 'POST',
-    url: 'https://obscure-caverns-10564.herokuapp.com/api/v1/reads',
+    url: 'http://localhost:3001/api/v1/reads',
     dataType: 'json',
     data: {
       read: {
