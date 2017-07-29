@@ -1,23 +1,17 @@
 require 'rails_helper'
 
-RSpec.feature('Edit a link', js: true) do
+RSpec.feature('Edit a link') do
   context('As a logged-in user') do
     scenario('a link can be edited') do
-      skip
       user = create(:user)
+      link = create(:link, user_id: user.id)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit root_path
 
-      fill_in('link[url]', with: 'https://github.com/')
-      fill_in('link[title]', with: 'GitHub')
-      click_link_or_button('Add Link')
-
-      sleep 1
-
       click_on('Edit')
 
-      expect(current_path).to eq(edit_link_path)
+      expect(current_path).to eq(edit_link_path(link))
       expect(page).to have_content('Edit Link')
 
       fill_in('link[url]', with: 'http://facebook.com')
